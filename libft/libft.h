@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:20:00 by lilam             #+#    #+#             */
-/*   Updated: 2017/11/29 22:20:33 by lilam            ###   ########.fr       */
+/*   Updated: 2017/11/30 10:21:16 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#define DL(x) (x=='\t'||x=='\n'||x =='\v'||x=='\r'||x=='\f'||x==' ')
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -33,6 +34,8 @@ char	*ft_strchr(const char *s, int c);
 char    *ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_atoi(const char *str);
 
 #endif
