@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 09:54:48 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 13:32:41 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/01 17:40:12 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/02 02:16:51 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_striter(char *s, void (*f)(char*))
 {
-	size_t i;
-
-	i = 0;
-	while (((unsigned char*)s1)[i] && i < n)
+	if (s && f)
 	{
-		if (((unsigned char*)s1)[i] != ((unsigned char*)s2)[i])
-			return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
-		i++;
+		while (*s)
+			f(s++);
 	}
-	return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
 }

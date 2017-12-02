@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:00:15 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 13:53:12 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/01 19:32:51 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/01 19:36:49 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MAX 9223372036854775807
 
-int	ft_atoi(const char *str)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	long i;
-	long val;
-	long sign;
+	size_t i;
+	size_t count;
 
-	sign = 1;
 	i = 0;
-	val = 0;
-	while (DL(str[i]))
-		i++;
-	if (str[i] == '+')
-		i++;
-	if (str[++i] == '-')
-		sign = -1;
-	if (DL(str[i]) || (str[i] >= 0 && str[i] <= 31))
+	count = 0;
+	if (!(s1 && s2))
 		return (0);
-	while (str[i])
+	while (s1[i] && i < n)
 	{
-		if (val * 10 + str[i] - '0' > MAX / val)
-			return (-1);
-		if (str[i] >= '0' && str[i] <= '9')
-			val = val * 10 + str[i] - '0';
+		if (s1[i] == s2[i])
+			count++;
 		i++;
 	}
-	return (val * sign);
+	return (count == i);
 }

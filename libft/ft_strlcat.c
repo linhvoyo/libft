@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 15:54:04 by lilam             #+#    #+#             */
-/*   Updated: 2017/11/29 16:27:20 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/02 02:16:24 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		if (i < (size - len - 1))
 			dst[len + i] = src[i];
 		else
-			break;
+			break ;
 		i++;
 	}
 	dst[len + i] = '\0';

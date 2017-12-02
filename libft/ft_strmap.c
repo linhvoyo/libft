@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 22:20:06 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 13:32:04 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/01 17:59:07 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/01 19:37:35 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	size_t i;
-	size_t j;
-	size_t little_length;
+	int		i;
+	char	*str;
 
-	i = 0;
-	little_length = 0;
-	if (!*little)
-		return ((char*)big);
-	while (little[little_length] && little_length <= len)
-		little_length++;
-	while (big[i])
+	if (!(s && f))
+		return (NULL);
+	str = (char*)malloc(sizeof(*str) * (ft_strlen(s) + 1));
+	if (str)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j])
-			j++;
-		if (j == little_length && ft_strlen(big + i) <= len)
-			return ((char*)(big + i));
-		i++;
+		i = 0;
+		while (s[i])
+		{
+			str[i] = f(s[i]);
+			i++;
+		}
+		str[i] = '\0';
 	}
-	return (0);
+	return (str);
 }

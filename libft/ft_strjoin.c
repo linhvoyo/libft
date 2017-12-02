@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 22:20:06 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 13:32:04 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/01 20:06:07 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/01 20:17:45 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	size_t j;
-	size_t little_length;
+	char	*str;
+	int		i;
 
+	if (!(s1 && s2))
+		return (NULL);
 	i = 0;
-	little_length = 0;
-	if (!*little)
-		return ((char*)big);
-	while (little[little_length] && little_length <= len)
-		little_length++;
-	while (big[i])
-	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j])
-			j++;
-		if (j == little_length && ft_strlen(big + i) <= len)
-			return ((char*)(big + i));
-		i++;
-	}
-	return (0);
+	str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!(str))
+		return (NULL);
+	while (*s1)
+		str[i++] = *s1++;
+	while (*s2)
+		str[i++] = *s2++;
+	str[i] = '\0';
+	return (str);
 }

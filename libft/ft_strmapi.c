@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 22:20:06 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 13:32:04 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/01 19:15:09 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/01 19:23:34 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t i;
-	size_t j;
-	size_t little_length;
+	int		i;
+	char	*str;
 
-	i = 0;
-	little_length = 0;
-	if (!*little)
-		return ((char*)big);
-	while (little[little_length] && little_length <= len)
-		little_length++;
-	while (big[i])
+	if (!(s && f))
+		return (NULL);
+	i = -1;
+	str = (char *)malloc(sizeof(*str) * (ft_strlen(s) + 1));
+	if (str)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j])
-			j++;
-		if (j == little_length && ft_strlen(big + i) <= len)
-			return ((char*)(big + i));
-		i++;
+		while (s[++i])
+			str[i] = f(i, s[i]);
+		str[i] = '\0';
 	}
-	return (0);
+	return (str);
 }
