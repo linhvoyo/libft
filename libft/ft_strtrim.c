@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:19:02 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 02:24:52 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/02 02:35:11 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ char *ft_strtrim(char const *s)
 	char *str;
 
 	j = 0;
+	if (!s)
+		return (NULL);
 	size = ft_strlen(s) - right_ws(s) - left_ws(s);
-//	if ((int)ft_strlen(s) == size)
-//		return ((char *)s);
+	if (size < 0)
+		return ("\0");
 	str = (char *)malloc(sizeof(*str) * (size + 1));
 	if (!str)
 		return (NULL);
