@@ -6,14 +6,14 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:19:02 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 02:35:11 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/02 15:08:22 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int        left_ws(char const *s)
-{ 
+int		left_ws(char const *s)
+{
 	int i;
 
 	i = 0;
@@ -22,22 +22,23 @@ int        left_ws(char const *s)
 	return (i);
 }
 
-int right_ws(char const *s)
+int		right_ws(char const *s)
 {
 	int i;
 
 	i = ft_strlen(s) - 1;
-	while (i > 0 && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t' || s[i] == '\0'))
+	while (i > 0 && (s[i] == ' ' ||
+				s[i] == '\n' || s[i] == '\t' || s[i] == '\0'))
 		i--;
 	return (ft_strlen(s) - 1 - i);
 }
 
-char *ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
-	int i;
-	int size;
-	int j;
-	char *str;
+	int		i;
+	int		size;
+	int		j;
+	char	*str;
 
 	j = 0;
 	if (!s)
@@ -52,6 +53,5 @@ char *ft_strtrim(char const *s)
 	while (i < left_ws(s) + size)
 		str[j++] = s[i++];
 	str[j] = '\0';
-	return(str);
+	return (str);
 }
-

@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:20:00 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 01:57:07 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/02 15:35:17 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #define DL(x) (x=='\t'||x=='\n'||x =='\v'||x == '\r'||x=='\f'||x==' ')
+#define AB(x) (x < 0 ? -x : x)
+
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -62,7 +64,13 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
-
-void ft_putchar(char c);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putendl(char const *s);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char s, int fd);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl_fd(char const *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 21:25:55 by lilam             #+#    #+#             */
-/*   Updated: 2017/11/28 22:07:44 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/02 18:15:34 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/02 19:16:41 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,29 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-//	size_t i;
+	size_t i;
+	size_t overlap;
 
-//	i = -1;
-//	while (++i < len)
-//	{
-//		if (&(dst[i]) != &(src[i]))
-//			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-//	}
-//	return (dst);
-
-//	int i;
-
-//	if ((&(src[0]) == &(dst[-(dst - src)])) && (dst - src) > 0)
-//	{
-//		i = len + (dst - src) - 1; 
-//		while (i >= 0)
-//		{
-//			if (i >= dst - src)
-//				((unsigned char*)dst)[i] = ((unsigned char*)src)[i - (dst - src)];
-//			else 
-//				((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-//			i--;
-//		}
-//	}
-//	else 
-//	{
-//		i = -1;
-//		while (++i < (int)len)
-//			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-//	}
-
-	unsigned char	tmp[len];
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-
+	i = -1;
+	overlap = 0;
+	while (++i <= len)
+		if ((src + i == dst) || (src + i == dst + len))
+		{
+			if (dst - src > 0)
+				overlap = 1;
+			break ;
+		}
+	if (overlap == 1)
+	{
+		i = len + (dst - src);
+		while ((int)--i >= 0)
+			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
+	}
+	else
+	{
+		i = -1;
+		while (++i < len)
+			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
+	}
 	return (dst);
 }

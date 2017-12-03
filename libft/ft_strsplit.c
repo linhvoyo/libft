@@ -6,17 +6,18 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 00:21:18 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/02 15:12:21 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int cal_length(char const *s, char c )
+int		cal_length(char const *s, char c)
 {
 	int i;
+
 	i = 0;
-	while(*s)
+	while (*s)
 	{
 		if (*s != c && *(s - 1) == c)
 			i++;
@@ -25,12 +26,12 @@ int cal_length(char const *s, char c )
 	return (i);
 }
 
-char *ft_print_word(int start, char const *str, char c)
+char	*ft_print_word(int start, char const *str, char c)
 {
-	int j;
-	char *temp;
-	int len;
-	int i;
+	int		j;
+	char	*temp;
+	int		len;
+	int		i;
 
 	len = 0;
 	j = start - 1;
@@ -46,11 +47,11 @@ char *ft_print_word(int start, char const *str, char c)
 	return (temp);
 }
 
-char **ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int j;
-	char **arr;
+	int		i;
+	int		j;
+	char	**arr;
 
 	if (!(s && c))
 		return (NULL);
@@ -65,11 +66,11 @@ char **ft_strsplit(char const *s, char c)
 			arr[j++] = ft_print_word((i), s, c);
 		else if (s[i] != c)
 		{
-			if (s[i -1] == c)
+			if (s[i - 1] == c)
 				arr[j++] = ft_print_word((i), s, c);
-		} 
+		}
 		i++;
 	}
 	arr[j] = (char *)0;
-	return arr;
+	return (arr);
 }
