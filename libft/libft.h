@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 12:20:00 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 19:36:31 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/03 06:51:38 by linh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,14 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void const *content, size_t content_size);
-void	ft_lstdelone(t_list **alst, void (*del)(void*), size_t);
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void	ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void	ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem));
+t_list	*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem));
+long long   ft_exponent(long long n, long long power);
+int		ft_cal_words(char const *s, char c);
+size_t	ft_ptr_overlap(void *dst, const void *src, size_t len);
+
 
 #endif
