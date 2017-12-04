@@ -6,13 +6,13 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 15:12:21 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/03 17:33:13 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		cal_length(char const *s, char c)
+static int	cal_length(char const *s, char c)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		cal_length(char const *s, char c)
 	return (i);
 }
 
-char	*ft_print_word(int start, char const *str, char c)
+static char	*ft_print_word(int start, char const *str, char c)
 {
 	int		j;
 	char	*temp;
@@ -47,7 +47,7 @@ char	*ft_print_word(int start, char const *str, char c)
 	return (temp);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;

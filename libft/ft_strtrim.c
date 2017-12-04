@@ -6,13 +6,13 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:19:02 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 15:08:22 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/03 17:20:26 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		left_ws(char const *s)
+static int		left_ws(char const *s)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int		left_ws(char const *s)
 	return (i);
 }
 
-int		right_ws(char const *s)
+static int		right_ws(char const *s)
 {
 	int i;
 
@@ -33,7 +33,7 @@ int		right_ws(char const *s)
 	return (ft_strlen(s) - 1 - i);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	int		i;
 	int		size;

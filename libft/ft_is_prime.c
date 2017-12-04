@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linh <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 05:42:40 by linh              #+#    #+#             */
-/*   Updated: 2017/12/03 16:21:09 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/03 16:36:20 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/03 16:58:10 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+int	ft_is_prime(int nb)
 {
-	while (lst)
+	int i;
+
+	i = ft_sqrt(nb);
+	if (nb < 2)
+		return (0);
+	if (nb == 2)
+		return (1);
+	while (i >= 2)
 	{
-		f(lst);
-		lst = lst->next;
+		if (nb % i == 0)
+			return (0);
+		i--;
 	}
+	return (1);
 }

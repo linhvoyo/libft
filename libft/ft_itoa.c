@@ -6,15 +6,15 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 14:17:26 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/02 15:10:19 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/03 17:38:02 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	ft_exp(long long n, long long power)
+static long long	ft_exp(long long n, long long power)
 {
-	long long res;
+	long long	res;
 
 	res = 1;
 	while (power--)
@@ -22,9 +22,9 @@ long long	ft_exp(long long n, long long power)
 	return (res);
 }
 
-char		*if_zero(void)
+static char			*if_zero(void)
 {
-	char *str;
+	char	*str;
 
 	str = (char *)malloc(sizeof(char) * 2);
 	str[0] = '0';
@@ -32,7 +32,7 @@ char		*if_zero(void)
 	return (str);
 }
 
-long		numstr_length(int n)
+static long			numstr_length(int n)
 {
 	long long	temp;
 	long		i;
@@ -47,7 +47,7 @@ long		numstr_length(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	long		i;
 	long		j;

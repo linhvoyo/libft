@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linh <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 05:42:40 by linh              #+#    #+#             */
-/*   Updated: 2017/12/03 16:21:09 by lilam            ###   ########.fr       */
+/*   Created: 2017/12/03 16:33:35 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/03 16:34:10 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+int	ft_sqrt(int nb)
 {
-	while (lst)
+	int i;
+
+	i = 0;
+	if (nb > 46340 * 46340)
+		return (0);
+	if (nb == 1)
+		return (1);
+	while (i < nb)
 	{
-		f(lst);
-		lst = lst->next;
+		if ((i * i) == nb)
+			return (i);
+		i++;
 	}
+	return (0);
 }
