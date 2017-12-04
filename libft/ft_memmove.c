@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 18:15:34 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/03 06:48:20 by linh             ###   ########.fr       */
+/*   Updated: 2017/12/04 09:48:17 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 	if (overlap == 1)
 	{
-		i = len + (dst - src);
+		i = len;
 		while ((int)--i >= 0)
 			((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
 	}
