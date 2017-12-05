@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 19:25:06 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/01 19:30:16 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/04 17:04:18 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	ft_strequ(char const *s1, char const *s2)
 			count++;
 		i++;
 	}
-	return (count == i);
+	return (count == i && ft_strlen(s1) == ft_strlen(s2));
 }

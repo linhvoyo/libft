@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/04 09:47:01 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/04 17:07:46 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	if (!(s && c))
 		return (NULL);
-	arr = (char **)malloc(sizeof(arr) * (cal_length(s, c) + 1));
+	arr = (char **)malloc(sizeof(char*) * (cal_length(s, c) + 1));
 	if (!arr)
 		return (NULL);
 	i = 0;
@@ -71,6 +71,6 @@ char		**ft_strsplit(char const *s, char c)
 		}
 		i++;
 	}
-	arr[j] = (char*)'\0';
+	arr[j] = 0;
 	return (arr);
 }
