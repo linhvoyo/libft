@@ -6,13 +6,13 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/04 19:04:09 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/04 19:06:15 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int        word_count(char const *str, char c)
+int        word_count(char const *str, char c)
 {
 	int    words;
 	int    i;
@@ -77,5 +77,5 @@ char            **ft_strsplit(char const *s, char c)
 			num[1] += num[0];
 		}
 	}
+	return (last_elem(temp, num[2]));
 }
-
