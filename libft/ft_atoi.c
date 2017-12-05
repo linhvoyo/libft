@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 15:54:04 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/04 18:36:07 by lilam            ###   ########.fr       */
+/*   Created: 2017/11/30 10:00:15 by lilam             #+#    #+#             */
+/*   Updated: 2017/12/04 18:20:51 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_atoi(const char *str)
 {
-	size_t i;
-	size_t len;
+	long i;
+	long val;
+	long sign;
 
+	sign = 1;
 	i = 0;
-	len = 0;
-	while (dst[len] && len < size)
-		len++;
-	if (size == len)
-		return (size + ft_strlen(src));
-	while (src[i])
+	val = 0;
+	while (DL(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (i < (size - len - 1))
-			dst[len + i] = src[i];
-		else
-			break ;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	dst[len + i] = '\0';
-	return (len + ft_strlen(src));
+	if (DL(str[i]) || (str[i] >= 0 && str[i] <= 31))
+		return (0);
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			val = val * 10 + str[i++] - '0';
+		else
+			break ;
+	}
+	return (val * sign);
 }
