@@ -6,76 +6,84 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/04 19:06:15 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 16:00:31 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int        word_count(char const *str, char c)
+static int		cal_length(char const *s, char c)
 {
-	int    words;
-	int    i;
+	int count;
+	int i;
 
-	words = 0;
 	i = 0;
-	while (str[i])
+	count = 0;
+	while (s[i])
 	{
-		if (str[i] == c)
-			i++;
-		else
-		{
-			words++;
-			while (str[i] != '\0' && str[i] != c)
-				i++;
-		}
+		if (s[i] != c && s[i - 1] == c)
+			count++;
+		i++;
 	}
-	return (words);
+	return (count);
 }
 
-static int        letter_count(char const *str, char c)
+static char		*ft_print_word(int start, char const *str, char c)
 {
-	int    n;
+	int		j;
+	char	*temp;
+	int		len;
+	int		i;
 
-	n = 0;
-	while (str[n] != '\0' && str[n] != c)
-		n++;
-	return (n);
-}
-
-static char        **last_elem(char **temp, int c2)
-{
-	temp[c2] = (char*)malloc(sizeof(char) * 1);
-	if (!temp[c2])
+	len = 0;
+	j = start - 1;
+	while (str[++j] != c)
+		len++;
+	temp = (char*)malloc(sizeof(char) * (len + 1));
+	if (!temp)
 		return (NULL);
-	temp[c2] = NULL;
+	i = 0;
+	while (start < j)
+		temp[i++] = str[start++];
+	temp[i] = '\0';
 	return (temp);
 }
 
-char            **ft_strsplit(char const *s, char c)
+char *null()
 {
-	char    **temp;
-	int        num[3];
+	char *tmp;
 
-	if (!s)
+	tmp = ft_strcpy((char*)malloc(sizeof(char) * 2), "");
+	return (tmp);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	int		i;
+	int		j;
+	char	**arr;
+
+	if (!(s && c))
 		return (NULL);
-	num[1] = 0;
-	num[2] = 0;
-	if (!(temp = (char**)malloc(sizeof(char*) * (word_count(s, c) + 1))))
+	arr = (char **)malloc(sizeof(char*) * (cal_length(s, c) + 1));
+	if (!arr)
 		return (NULL);
-	while (s[num[1]])
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		if (s[num[1]] == c)
-			num[1]++;
-		else
+		if (i == 0 && s[i] != c)
+			arr[j++] = ft_print_word((i), s, c);
+		else if (s[i] != c)
 		{
-			num[0] = letter_count(s + num[1], c);
-			if (!(temp[num[2]] = (char*)malloc(sizeof(char) * (num[0] + 1))))
-				return (NULL);
-			ft_strncpy(temp[num[2]], s + num[1], num[0]);
-			temp[num[2]++][num[0]] = '\0';
-			num[1] += num[0];
+			if (s[i - 1] == c)
+				arr[j++] = ft_print_word((i), s, c);
 		}
+		i++;
 	}
-	return (last_elem(temp, num[2]));
+	arr[j] = (char*)malloc(sizeof(char) * 1);
+	if (!arr[j])
+		return (NULL);
+	arr[j] = NULL;
+	return (arr);
 }
