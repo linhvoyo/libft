@@ -6,31 +6,24 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 17:44:05 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 17:51:54 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int        cal_length(char const *str, char c)
+static int    cal_length(char const *s, char c)
 {
-	int    words;
-	int    i;
+	int i;
 
-	words = 0;
 	i = 0;
-	while (str[i])
+	while (*s)
 	{
-		if (str[i] == c)
+		if (*s != c && *(s - 1) == c)
 			i++;
-		else
-		{
-			words++;
-			while (str[i] != '\0' && str[i] != c)
-				i++;
-		}
+		s++;
 	}
-	return (words);
+	return (i);
 }
 
 static char		*ft_print_word(int start, char const *str, char c)
