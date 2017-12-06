@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 17:54:43 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 17:58:07 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int    cal_length(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i - 1] == c)
-			count ++;
+		if (s[i] != c && s[i + 1] == c)
+			count++;
 		i++;
 	}
 	return (count);
