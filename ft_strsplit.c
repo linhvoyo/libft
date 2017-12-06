@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 17:35:41 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 17:44:05 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char		*ft_print_word(int start, char const *str, char c)
 
 	len = 0;
 	j = start;
-	while (str[j] != c || str[j] == '\0')
+	while (str[j] != c && str[j])
 	{
 		j++;
 		len++;
