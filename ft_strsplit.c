@@ -6,15 +6,15 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 18:14:40 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 18:17:59 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int    cal_length(char const *s, char c)
+static int		cal_length(char const *s, char c)
 {
-	int i;		
+	int i;
 	int count;
 
 	i = 0;
@@ -78,9 +78,6 @@ char			**ft_strsplit(char const *s, char c)
 		}
 		i++;
 	}
-//	arr[j] = (char*)malloc(sizeof(char) * 1);
-//	if (!arr[j])
-//		return (NULL);
 	arr[j] = NULL;
 	return (arr);
 }
