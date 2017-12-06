@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 18:09:38 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 18:11:06 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int    cal_length(char const *s, char c)
 			count++;
 		i++;
 	}
-	return (count)
+	return (count);
 }
 
 //static int        cal_length(char const *str, char c)
