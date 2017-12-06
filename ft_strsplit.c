@@ -6,7 +6,7 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 17:09:13 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 17:35:41 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,12 @@ static char		*ft_print_word(int start, char const *str, char c)
 	int		i;
 
 	len = 0;
-	j = start - 1;
-	while (str[++j] != c)
+	j = start;
+	while (str[j] != c || str[j] == '\0')
+	{
+		j++;
 		len++;
+	}
 	temp = (char*)malloc(sizeof(char) * (len + 1));
 	if (!temp)
 		return (NULL);
@@ -81,6 +84,6 @@ char			**ft_strsplit(char const *s, char c)
 	arr[j] = (char*)malloc(sizeof(char) * 1);
 	if (!arr[j])
 		return (NULL);
-	arr[j] = 0;
+	arr[j] = NULL;
 	return (arr);
 }
