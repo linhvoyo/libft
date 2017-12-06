@@ -6,48 +6,50 @@
 /*   By: lilam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 23:23:20 by lilam             #+#    #+#             */
-/*   Updated: 2017/12/05 18:02:43 by lilam            ###   ########.fr       */
+/*   Updated: 2017/12/05 18:09:38 by lilam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//static int    cal_length(char const *s, char c)
-//{
-//	int i;
-//	int count;
-
-//	i = 0;
-//	count = 0;
-//	while (s[i])
-//	{
-//		if (s[i] != c && s[i - 1] == c)
-//			count++;
-//		i++;
-//	}
-//	return (count)
-//}
-
-static int        cal_length(char const *str, char c)
+static int    cal_length(char const *s, char c)
 {
-	int    words;
-	int    i;
+	int i;		
+	int count;
 
-	words = 0;
 	i = 0;
-	while (str[i])
+	count = 0;
+	while (s[i])
 	{
-		if (str[i] == c)
-			i++;
-		else
-		{
-			words++;
-			while (str[i] != '\0' && str[i] != c)
-				i++;
-		}
+		if (i == 0 && s[i] != c)
+			count++;
+		else if (s[i] != c && s[i - 1] == c)
+			count++;
+		i++;
 	}
-	return (words);
+	return (count)
 }
+
+//static int        cal_length(char const *str, char c)
+//{
+//	int    words;
+//	int    i;
+
+//	words = 0;
+//	i = 0;
+//	while (str[i])
+//	{
+//		if (str[i] == c)
+//			i++;
+//		else
+//		{
+//			words++;
+//			while (str[i] != '\0' && str[i] != c)
+//				i++;
+//		}
+//	}
+//	return (words);
+//}
 
 static char		*ft_print_word(int start, char const *str, char c)
 {
